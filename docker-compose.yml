@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+  
+  web:
+    restart: on-failure
+    build: ./web
+
+  nginx:
+    build: nginx
+    command: nginx -g "daemon off;"
+    container_name: app_nginx
+    ports:
+      - "5001:5001"
